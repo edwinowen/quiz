@@ -1,0 +1,22 @@
+<div class='progress-container'>
+    <div class='progress' [ngClass]="{ 'alternate': alternate }" [ngStyle]="{ 'width': setProgressWidth() }"></div>
+</div>
+
+<div class="assessment-container">
+    <div *ngFor='let question of assessment.questions'>
+        <app-multiple-choice *ngIf='isMultipleChoice(question)'
+            [content]='question.content'
+            (result)='onQuestionResult($event)'>
+        </app-multiple-choice>
+        <app-multiple-answer *ngIf='isMultipleAnswer(question)'
+            [content]='question.content'
+            (result)='onQuestionResult($event)'>
+        </app-multiple-answer>
+    </div>
+
+    <div class="results" [ngClass]="{ 'complete' : assessmentComplete }">
+        <h3>You have completed the quiz!</h3>
+        <h4>You scored {{ assessment.score }}%</h4>
+        <button class='try-again' [ngClass]="{ 'complete' : assessmentComplete }" (click)='reset()'>Try Again</button>
+    </div>
+</div>

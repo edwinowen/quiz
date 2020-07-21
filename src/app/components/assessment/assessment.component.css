@@ -1,0 +1,89 @@
+.progress-container {
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    height: 10px;
+    background: rgba(0,0,0,0.8);
+    box-shadow: 0px 3px 9px 3px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+.progress {
+    width: 50%;
+    height: 10px;
+    background-image: linear-gradient(45deg,
+        rgba(0,220,0,0.8), rgba(100,250,100,0.8),
+        rgba(0,220,0,0.8), rgba(100,250,100,0.8),
+        rgba(0,220,0,0.8), rgba(100,250,100,0.8),
+        rgba(0,220,0,0.8), rgba(100,250,100,0.8),
+        rgba(0,220,0,0.8), rgba(100,250,100,0.8));
+    transition: width 5s ease;
+    border-bottom: 1px solid rgba(0,0,0,0.6);
+}
+
+.progress.alternate {
+    background-image: linear-gradient(45deg,
+        rgba(100,250,100,0.8), rgba(0,220,0,0.8), 
+        rgba(100,250,100,0.8), rgba(0,220,0,0.8), 
+        rgba(100,250,100,0.8), rgba(0,220,0,0.8), 
+        rgba(100,250,100,0.8), rgba(0,220,0,0.8), 
+        rgba(100,250,100,0.8), rgba(0,220,0,0.8));
+}
+
+.assessment-container {
+    padding-top: 60px;
+}
+
+.results {
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    opacity: 0;
+    width: 0px;
+    text-align: center;
+    max-width: 95%;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.12);
+    transition: opacity 5s ease, width 3s ease, max-height 3s ease;
+    max-height: 0px;
+}
+
+.results a {
+    opacity: 0;
+    transition: opacity 8s ease;
+}
+
+.results.complete {
+    width: 800px;
+    opacity: 1;
+    max-height: 600px;
+}
+
+.results.complete a {
+    opacity: 1;
+}
+
+.try-again {
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 10px;
+    background: rgba(70, 170, 90, 0.7);
+    opacity: 0;
+    transition: background-color 0.9s ease,
+        opacity 10s ease,
+        height 0.5s ease,
+        margin 0.3s ease,
+        padding 0.7s ease;
+    cursor: pointer;
+}
+
+.try-again.complete {
+    opacity: 1;
+}
+
+.try-again:hover {
+    background: rgba(80, 250, 100, 0.9);
+}

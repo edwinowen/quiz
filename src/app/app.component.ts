@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Assessment } from './models/assessment';
+import { MotorsportsQuiz } from './models/sample-assessments'
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'quiz';
+  assessment: Assessment = MotorsportsQuiz();
 }

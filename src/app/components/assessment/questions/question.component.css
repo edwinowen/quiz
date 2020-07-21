@@ -1,0 +1,133 @@
+.question-container {
+    margin: 20px 10px;
+    padding: 0 20px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.12);
+    max-height: 1000px;
+    transition: margin 2s ease, max-height 3s ease;
+}
+
+.question-container h3 {
+    padding: 30px 0 0 0;
+}
+
+.question-container.leave-left {
+    margin-right: 200%;
+    margin-left: -200%;
+    max-height: 0px;
+    overflow: hidden;
+}
+
+.question-container.leave-right {
+    margin-left: 200%;
+    margin-right: -200%;
+    max-height: 0px;
+    overflow: hidden;
+}
+
+.answer-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.answer {
+    width: 100%;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,1);
+    box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.12);
+    cursor: pointer;
+    transition: border 1s ease, padding, 1s ease, background-color 0.7s ease;
+}
+
+.answer:hover {
+    background: rgba(150,205,255,0.3);
+}
+
+.answer.submitted {
+    background: rgba(255,255,255,1);
+    cursor: not-allowed;
+}
+
+.answer.selected {
+    background: rgba(150,205,255,0.8);
+}
+
+.answer.correct {
+    border: 5px solid rgba(150, 255, 170, 0.8);
+    padding: 0px 5px;
+}
+
+.answer.selected.correct {
+    background:rgba(150, 255, 170, 0.8);
+    border: none;
+    padding: 5px 10px;
+}
+
+.answer.incorrect {
+    background: rgba(255, 110, 130, 0.8);
+}
+
+.answer:first-child {
+    margin-left: 0;
+}
+
+.answer:last-child {
+    margin-right: 0;
+}
+
+.submitAnswerButton {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 0px;
+    margin-bottom: 0px;
+    background: rgba(70, 170, 90, 0.7);
+    opacity: 0;
+    height: 0;
+    transition: background-color 0.9s ease,
+        opacity 0.3s ease,
+        height 0.5s ease,
+        margin 0.3s ease,
+        padding 0.7s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.submitAnswerButton.show {
+    opacity: 1;
+    height: 40px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.submitAnswerButton:hover {
+    background: rgba(80, 250, 100, 0.9);
+}
+
+@media screen and (max-width: 960px) {
+    .answer-container {
+        flex-wrap: wrap;
+    }
+    .answer {
+        width: calc(50% - 30px);
+        margin: 5px 0;
+    }
+    
+    .submitAnswerButton.show {
+        height: 50px;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .answer-container {
+        flex-wrap: wrap;
+    }
+    .answer {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

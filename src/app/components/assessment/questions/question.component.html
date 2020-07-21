@@ -1,0 +1,22 @@
+<div class="question-container"
+    [ngClass]="shouldLeave"
+>
+    <h3>{{ content.question }}</h3>
+    <div class="answer-container">
+        <div *ngFor="let answer of content.answers"
+            class="answer"
+            [ngClass]="{ 'selected' : isSelected(answer),
+                'submitted' : submitted,
+                'correct' : isCorrect(answer),
+                'incorrect' : isIncorrect(answer) }"
+            (click)="setSelected(answer)"
+        >
+            <p>{{ answer }}</p>
+        </div>
+    </div>
+    <button class="submitAnswerButton"
+        [ngClass]="{ 'show': isAnswerValid() && !submitted}"
+        (click)="submitAnswer()">
+        Submit Answer
+    </button>
+</div>
